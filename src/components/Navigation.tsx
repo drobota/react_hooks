@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState, useEffect, useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 
 const DEFAULT_TIMEOUT = 3000;
 
@@ -63,7 +63,7 @@ const Navigation: React.FunctionComponent<NavigationProps> = (props) => {
         clearInterval(intervalId);
       }
     }
-  });
+  }, [state.isPlaying]);
   
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
