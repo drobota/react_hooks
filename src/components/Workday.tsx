@@ -1,12 +1,10 @@
 import * as React from 'react';
-import { useEffect } from "react";
+import { useDocumentTitle } from '../hooks';
 
 // TODO: Rename into sth main page
 
 const Workday: React.FC = () => {
-  useEffect(() => {
-    document.title = 'Workday';
-  });
+  useDocumentTitle('Workday');
   
   return <div className="Workday-container">
     <img src='workday-logo.svg' />

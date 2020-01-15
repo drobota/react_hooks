@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEffect } from "react";
+import { useDocumentTitle } from "../hooks";
 
 interface SlideProps {
   title: string;
@@ -7,9 +7,7 @@ interface SlideProps {
 }
 
 const Slide: React.FC<SlideProps> = (props) => {
-  useEffect( () => {
-    document.title = props.title;
-  });
+  useDocumentTitle(props.title);
   
   return <div className="slide-container">
     <header className="header">{props.title}</header>
