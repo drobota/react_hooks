@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Workday from "./components/Workday";
+import Slide from "./components/Slide";
+import Navigation from "./components/Navigation";
 
-const App: React.FC = () => {
+
+const App: React.FunctionComponent = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navigation>
+        <Workday />
+        <Slide title="Agenda" key="Agenda">
+          <div>Agenda</div>
+        </Slide>
+        <Slide title="Questions" key="Questions">
+          <div>Questions</div>
+        </Slide>
+      </Navigation>
     </div>
   );
-}
+};
 
 export default App;
