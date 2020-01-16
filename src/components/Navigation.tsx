@@ -85,7 +85,7 @@ const Navigation: React.FunctionComponent<NavigationProps> = (props) => {
     return () => {
       window.removeEventListener('keydown', onKeyDown);
     };
-  }, [state.currentIndex]);
+  }, [state.currentIndex, props.children.length]);
   
   return props.children[state.currentIndex];
   

@@ -4,18 +4,21 @@ import Workday from './components/Workday';
 import Slide from './components/Slide';
 import Navigation from './components/Navigation';
 import BulletedList from './components/BulletedList';
+import CodeBlock from './components/CodeBlock';
+import * as examples from './code/examples';
 
 const App: React.FunctionComponent = () => {
   return (
     <div className="App">
       <Navigation>
+        <Workday />
         <Slide title="Agenda" key="Agenda">
           <BulletedList
             title="Components"
             items={[
               'Class component',
               'Functional component',
-              'Differencess'
+              'Difference'
             ]}
           />
           <BulletedList
@@ -31,7 +34,12 @@ const App: React.FunctionComponent = () => {
           />
           <BulletedList title="Questions" />
         </Slide>
-        <Workday />
+        <Slide title="Class component" key="Class component">
+          <CodeBlock>{ examples.helloWorldClass }</CodeBlock>
+        </Slide>
+        <Slide title="Functional component" key="Class component">
+          <CodeBlock>{ examples.helloWorld }</CodeBlock>
+        </Slide>
         <Slide title="Questions" key="Questions">
           <div>Questions</div>
         </Slide>

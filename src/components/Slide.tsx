@@ -15,7 +15,7 @@ const Slide: React.FC<SlideProps> = (props) => {
   return (
     <Container>
       <Header className="header">{props.title}</Header>
-      <main>{props.children}</main>
+      <Main>{props.children}</Main>
     </Container>
   );
 };
@@ -38,5 +38,8 @@ const Header = styled.header({
   justifyContent: 'center',
 });
 
+const Main = styled.main({
+  margin: '2rem',
+});
 
 export default Slide;
