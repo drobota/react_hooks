@@ -2,6 +2,8 @@ import * as React from 'react';
 import { useDocumentTitle } from "../hooks";
 import styled from "@emotion/styled";
 
+import { WORKDAY_BG_COLOR } from '../constants/colors';
+
 interface SlideProps {
   title: string;
   children: React.ReactNode
@@ -29,7 +31,7 @@ const Header = styled.header({
   display: 'flex',
   height: '8rem',
   lineHeight: '8rem',
-  background: '#3072b9',
+  background: WORKDAY_BG_COLOR,
   color: 'white',
   fontSize: '3.75rem',
   alignContent: 'center',

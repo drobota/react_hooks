@@ -2,6 +2,9 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import { useDocumentTitle } from '../hooks';
 
+import { WORKDAY_BG_COLOR } from '../constants/colors';
+
+
 // TODO: Rename into sth main page
 
 const Workday: React.FC = () => {
@@ -22,12 +25,12 @@ const Container = styled.div({
   flexDirection: 'column',
   textAlign: 'center',
   flex: 1,
-  backgroundColor: '#3072b9',
+  backgroundColor: WORKDAY_BG_COLOR,
 });
 
 const Image = styled.img({
   width: '50%',
-  backgroundColor: '#3072b9',
+  backgroundColor: WORKDAY_BG_COLOR,
   marginBottom: '3rem'
 });
 
