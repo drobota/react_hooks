@@ -6,12 +6,20 @@ import Navigation from './components/Navigation';
 import BulletedList from './components/BulletedList';
 import CodeBlock from './components/CodeBlock';
 import StopWatchClass from './components/StopWatchClass'
+import UseStateExample from './components/UseStateExample';
+import UseEffectExample from './components/UseEffectExample';
+
 import * as examples from './code/examples';
 
 const App: React.FunctionComponent = () => {
   return (
     <div className='App'>
       <Navigation>
+        {/*<Slide title={'How to test hooks'}>*/}
+        {/*  <CodeBlock>*/}
+        {/*    {examples.testComponentExample}*/}
+        {/*  </CodeBlock>*/}
+        {/*</Slide>*/}
         <StopWatchClass />
         <Workday />
         <Slide title='Agenda' key='Agenda'>
@@ -41,6 +49,40 @@ const App: React.FunctionComponent = () => {
           <BulletedList title={'Functional component'} />
           <CodeBlock>{ examples.helloWorld }</CodeBlock>
         </Slide>
+        <Slide title={'Hooks'}>
+          <BulletedList
+            title={'Basic hooks'}
+            items={[
+              'useState',
+              'useEffect',
+              'useContext'
+            ]}
+          />
+          <BulletedList
+            title={'Additional hooks'}
+            items={[
+              'useReducer',
+              'useCallback',
+              'useMemo',
+              'useRef',
+              'useImperativeHandle',
+              'useLayoutEffect',
+              'useDebugValue',
+            ]}
+          />
+        </Slide>
+        <Slide title={'useState'}>
+          <CodeBlock>
+            {examples.useStateExample}
+          </CodeBlock>
+          <UseStateExample />
+        </Slide>
+        <Slide title={'useEffect'}>
+          <CodeBlock>
+            {examples.useEffectExample}
+          </CodeBlock>
+          <UseEffectExample />
+        </Slide>
         <Slide title='Rules of hooks'>
           <BulletedList
             title='Only call hooks at the Top Level'
@@ -49,7 +91,7 @@ const App: React.FunctionComponent = () => {
             title='Only call hooks from react functions'
             items={[
               'Call hooks from react function components',
-              'Call Hooks from custom hooks'
+              'Call hooks from custom hooks'
             ]}
           />
           <BulletedList
@@ -68,8 +110,26 @@ const App: React.FunctionComponent = () => {
             ]}
           />
         </Slide>
+        <Slide title={'Rules of hooks'}>
+          <CodeBlock>
+            {examples.hookRulesExample}
+          </CodeBlock>
+        </Slide>
+        <Slide title={'Third party hooks'}>
+          <BulletedList
+            title={'react-use'}
+            items={[
+              'Sensors',
+              'UI',
+              'Animations',
+              'Side-effects',
+              'Lifecycle',
+              'State',
+            ]}
+          />
+        </Slide>
         <Slide title='Questions'>
-          <div>Questions</div>
+          <div>?</div>
         </Slide>
       </Navigation>
     </div>

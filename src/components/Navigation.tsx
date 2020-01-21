@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { useEffect, useReducer } from 'react';
+import { useEffect, useReducer, useState } from 'react';
+import { useDocumentTitle } from '../hooks';
 
 const DEFAULT_TIMEOUT = 3000;
 
