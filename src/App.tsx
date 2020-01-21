@@ -5,33 +5,27 @@ import Slide from './components/Slide';
 import Navigation from './components/Navigation';
 import BulletedList from './components/BulletedList';
 import CodeBlock from './components/CodeBlock';
-import StopWatchClass from './components/StopWatchClass'
 import UseStateExample from './components/UseStateExample';
 import UseEffectExample from './components/UseEffectExample';
 
 import * as examples from './code/examples';
+import FormExample from './components/FormExample';
 
 const App: React.FunctionComponent = () => {
   return (
     <div className='App'>
       <Navigation>
-        {/*<Slide title={'How to test hooks'}>*/}
-        {/*  <CodeBlock>*/}
-        {/*    {examples.testComponentExample}*/}
-        {/*  </CodeBlock>*/}
-        {/*</Slide>*/}
-        <StopWatchClass />
-        <Workday />
+        <Workday/>
         <Slide title='Agenda' key='Agenda'>
           <BulletedList
             title='React components'
-            items={[
+            items={ [
               'Types of components',
-            ]}
+            ] }
           />
           <BulletedList
             title='React Hooks'
-            items={[
+            items={ [
               'Built-in hooks',
               'useState',
               'useEffect',
@@ -39,28 +33,28 @@ const App: React.FunctionComponent = () => {
               'Rules of hooks',
               'How to test hooks',
               'Third party hooks'
-            ]}
+            ] }
           />
-          <BulletedList title='Questions' />
+          <BulletedList title='Questions'/>
         </Slide>
         <Slide title='Types of components'>
-          <BulletedList title={'Class component'} />
+          <BulletedList title={ 'Class component' }/>
           <CodeBlock>{ examples.helloWorldClass }</CodeBlock>
-          <BulletedList title={'Functional component'} />
+          <BulletedList title={ 'Functional component' }/>
           <CodeBlock>{ examples.helloWorld }</CodeBlock>
         </Slide>
-        <Slide title={'Hooks'}>
+        <Slide title={ 'Hooks' }>
           <BulletedList
-            title={'Basic hooks'}
-            items={[
+            title={ 'Basic hooks' }
+            items={ [
               'useState',
               'useEffect',
               'useContext'
-            ]}
+            ] }
           />
           <BulletedList
-            title={'Additional hooks'}
-            items={[
+            title={ 'Additional hooks' }
+            items={ [
               'useReducer',
               'useCallback',
               'useMemo',
@@ -68,20 +62,20 @@ const App: React.FunctionComponent = () => {
               'useImperativeHandle',
               'useLayoutEffect',
               'useDebugValue',
-            ]}
+            ] }
           />
         </Slide>
-        <Slide title={'useState'}>
+        <Slide title={ 'useState' }>
           <CodeBlock>
-            {examples.useStateExample}
+            { examples.useStateExample }
           </CodeBlock>
-          <UseStateExample />
+          <UseStateExample/>
         </Slide>
-        <Slide title={'useEffect'}>
+        <Slide title={ 'useEffect' }>
           <CodeBlock>
-            {examples.useEffectExample}
+            { examples.useEffectExample }
           </CodeBlock>
-          <UseEffectExample />
+          <UseEffectExample/>
         </Slide>
         <Slide title='Rules of hooks'>
           <BulletedList
@@ -89,47 +83,62 @@ const App: React.FunctionComponent = () => {
           />
           <BulletedList
             title='Only call hooks from react functions'
-            items={[
+            items={ [
               'Call hooks from react function components',
               'Call hooks from custom hooks'
-            ]}
+            ] }
           />
           <BulletedList
-            title={'Don\'t call hooks'}
-            items={[
+            title={ 'Don\'t call hooks' }
+            items={ [
               'Inside loops',
               'Inside conditions',
               'Nested functions',
-            ]}
+            ] }
           />
           <BulletedList
-            title={'Lints'}
-            items={[
+            title={ 'Lints' }
+            items={ [
               'eslint-plugin-react-hooks',
               'tslint-react-hooks'
-            ]}
+            ] }
           />
         </Slide>
-        <Slide title={'Rules of hooks'}>
+        <Slide title={ 'Rules of hooks' }>
           <CodeBlock>
-            {examples.hookRulesExample}
+            { examples.hookRulesExample }
           </CodeBlock>
         </Slide>
-        <Slide title={'Third party hooks'}>
+        <Slide title={ 'How to test' }>
+          <CodeBlock>
+            { examples.testFormExampleBefore }
+          </CodeBlock>
+          <FormExample firstName={ 'Harry' } lastName={ 'Potter' }/>
+        </Slide>
+        <Slide title={ 'How to test' }>
+          <CodeBlock>
+            { examples.testFormExampleAfter }
+          </CodeBlock>
+        </Slide>
+        <Slide title={ 'How to test' }>
+          <CodeBlock>
+            { examples.testFormExample }
+          </CodeBlock>
+        </Slide>
+        <Slide title={ 'Third party hooks' }>
           <BulletedList
-            title={'react-use'}
-            items={[
+            title={ 'react-use' }
+            items={ [
               'Sensors',
               'UI',
               'Animations',
               'Side-effects',
               'Lifecycle',
               'State',
-            ]}
+            ] }
           />
         </Slide>
         <Slide title='Questions'>
-          <div>?</div>
         </Slide>
       </Navigation>
     </div>

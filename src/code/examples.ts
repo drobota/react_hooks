@@ -109,3 +109,157 @@ const BookForm: React.FunctionComponent = () => {
   return (...);
 };
 `;
+
+export const testFormExampleBefore = `
+import * as React from 'react';
+import { useEffect, useRef, useState } from 'react';
+
+export type FormExampleProps = {
+  firstName: string,
+  lastName: string,
+};
+
+const FormExample: React.FunctionComponent<FormExampleProps> = (props) => {
+  const [ firstName, setFirstName ] = useState(props.firstName);
+  const [ lastName, setLastName ] = useState(props.lastName);
+  const inputRef = useRef<HTMLInputElement>(null);
+  
+  useEffect(() => {
+    if (inputRef && inputRef.current) {
+      inputRef.current.focus();
+    }
+    
+  }, []);
+  
+  const onFirstNameChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    e.stopPropagation();
+    setFirstName(e.target.value);
+  };
+  
+  const onLastNameChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    e.stopPropagation();
+    setLastName(e.target.value);
+  };
+  
+  return (
+    <form>
+      <label>First Name:</label>
+      <input value={firstName} onChange={onFirstNameChange} ref={inputRef}/>
+      <label>Last Name:</label>
+      <input value={lastName} onChange={onLastNameChange} />
+    </form>
+  );
+};
+
+
+export default FormExample;
+`;
+
+export const testFormExampleAfter = `
+import * as React from 'react';
+import { useEffect, useRef, useState } from 'react';
+
+export type FormExampleProps = {
+  firstName: string,
+  lastName: string,
+};
+
+const useFormItem = (initialValue: string) => {
+  const [ value, setValue ] = useState(initialValue);
+
+  const onValueChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    e.stopPropagation();
+    setValue(e.target.value);
+  };
+  return {
+    value,
+    onChange: onValueChange,
+  }
+};
+
+const useFocusInputOnMount = () => {
+  const inputRef = useRef<HTMLInputElement>(null);
+  useEffect( () => {
+    if (inputRef && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
+  return inputRef;
+};
+
+const FormExample: React.FunctionComponent<FormExampleProps> = (props) => {
+  const firstName = useFormItem(props.firstName);
+  const lastName = useFormItem(props.lastName);
+  const inputRef = useFocusInputOnMount();
+  
+  return (
+    <form>
+      <label>First Name:</label>
+      <input {...firstName} ref={inputRef}/>
+      <label>Last Name:</label>
+      <input {...lastName} />
+    </form>
+  );
+};
+
+
+export default FormExample;
+
+`;
+
+export const testFormExample =`
+import * as React from 'react';
+import { ReactWrapper, mount } from 'enzyme';
+
+import FormExample, { FormExampleProps } from './FormExample';
+
+describe('FormExample', () => {
+  let props: FormExampleProps;
+  let component: ReactWrapper;
+  
+  beforeEach(() => {
+    props = {
+      firstName = 'Harry',
+      lastName = 'Potter',
+    };
+    component = mount(<FormExample { ...props } />);
+  });
+  
+  afterEach(() => {
+    component.unmount();
+  });
+  
+  describe('Snapshots', () => {
+    
+    test('should render collapsed as expected', () => {
+      expect(component).toMatchSnapshot();
+    });
+    
+  });
+  describe('Interaction', () => {
+    
+    test('should focus name input on mount', () => {
+      const actual = document.activeElement;
+      const expected = component
+        .find('input')
+        .first();
+      expect(expected).toBe(actual);
+    });
+    
+    test('should update first name', () => {
+      const expected = 'Test name';
+      component
+        .find('input')
+        .first()
+        .simulate('change', { target: expected });
+      const actual = component
+        .find('input')
+        .first()
+        .value;
+      expect(expected).toBe(actual);
+    });
+    
+  });
+});
+
+`;

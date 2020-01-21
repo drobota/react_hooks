@@ -2,7 +2,6 @@ import * as React from 'react';
 import { useState } from 'react';
 import styled from '@emotion/styled';
 
-
 const UseStateExample: React.FunctionComponent = () => {
   const [name, setName] = useState('Harry Potter');
   
@@ -17,7 +16,6 @@ const UseStateExample: React.FunctionComponent = () => {
     </Container>
   );
 };
-
 
 const Container = styled.div({
   margin: '3rem'
