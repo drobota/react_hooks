@@ -42,6 +42,7 @@
     ]
   },
   "devDependencies": {
+    "tslint-config-prettier": "^1.18.0",
     "tslint-react-hooks": "^2.2.1"
   }
 }

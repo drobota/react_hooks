@@ -5,26 +5,27 @@ import Slide from './components/Slide';
 import Navigation from './components/Navigation';
 import BulletedList from './components/BulletedList';
 import CodeBlock from './components/CodeBlock';
+import StopWatchClass from './components/StopWatchClass'
 import * as examples from './code/examples';
 
 const App: React.FunctionComponent = () => {
   return (
-    <div className="App">
+    <div className='App'>
       <Navigation>
+        <StopWatchClass />
         <Workday />
-        <Slide title="Agenda" key="Agenda">
+        <Slide title='Agenda' key='Agenda'>
           <BulletedList
-            title="Components"
+            title='React components'
             items={[
-              'Class component',
-              'Functional component',
-              'Difference'
+              'Types of components',
             ]}
           />
           <BulletedList
-            title="React Hooks"
+            title='React Hooks'
             items={[
-              'Build-in hooks',
+              'Built-in hooks',
+              'useState',
               'useEffect',
               'How to write own hook',
               'Rules of hooks',
@@ -32,15 +33,42 @@ const App: React.FunctionComponent = () => {
               'Third party hooks'
             ]}
           />
-          <BulletedList title="Questions" />
+          <BulletedList title='Questions' />
         </Slide>
-        <Slide title="Class component" key="Class component">
+        <Slide title='Types of components'>
+          <BulletedList title={'Class component'} />
           <CodeBlock>{ examples.helloWorldClass }</CodeBlock>
-        </Slide>
-        <Slide title="Functional component" key="Class component">
+          <BulletedList title={'Functional component'} />
           <CodeBlock>{ examples.helloWorld }</CodeBlock>
         </Slide>
-        <Slide title="Questions" key="Questions">
+        <Slide title='Rules of hooks'>
+          <BulletedList
+            title='Only call hooks at the Top Level'
+          />
+          <BulletedList
+            title='Only call hooks from react functions'
+            items={[
+              'Call hooks from react function components',
+              'Call Hooks from custom hooks'
+            ]}
+          />
+          <BulletedList
+            title={'Don\'t call hooks'}
+            items={[
+              'Inside loops',
+              'Inside conditions',
+              'Nested functions',
+            ]}
+          />
+          <BulletedList
+            title={'Lints'}
+            items={[
+              'eslint-plugin-react-hooks',
+              'tslint-react-hooks'
+            ]}
+          />
+        </Slide>
+        <Slide title='Questions'>
           <div>Questions</div>
         </Slide>
       </Navigation>

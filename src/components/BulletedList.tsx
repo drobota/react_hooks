@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 
-import { ICON_COLOR, GRAY_COLOR} from '../constants/colors';
+import { ICON_COLOR, GRAY_COLOR } from '../constants/colors';
 
 interface BulletedListProps {
   title: string;
@@ -10,7 +10,7 @@ interface BulletedListProps {
 
 const BulletedList: React.FC<BulletedListProps> = (props) => {
   const buildItem = (item: string): React.ReactNode => {
-    return <Item key={item}><Icon>-</Icon>{item}</Item>
+    return <Item key={ item }><Icon>-</Icon>{ item }</Item>;
   };
   
   const buildItems = (): React.ReactNode => {
@@ -29,7 +29,7 @@ const BulletedList: React.FC<BulletedListProps> = (props) => {
 
 
 const Title = styled.div({
-  fontSize: '4rem',
+  fontSize: '3rem',
   padding: '2rem',
   color: GRAY_COLOR,
   fontWeight: 'bold',
@@ -38,7 +38,7 @@ const Title = styled.div({
 const Items = styled.ul({
   listStyle: 'none',
   margin: 0,
-  fontSize: '3rem',
+  fontSize: '2.5rem',
   paddingLeft: '5rem'
 });
 
